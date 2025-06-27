@@ -115,14 +115,109 @@ showFruitsNum.id = "fruits-total"
 showFruitsNum.innerHTML = `Total fruits:${num}`;
 showFruitsheading.appendChild(showFruitsNum);
 
-const fruitList = document.querySelector('.fruits');
-const parentDiv = fruitList.parentElement;
-parentDiv.insertBefore(showFruitsNum, fruitList);
+const fruitListt = document.querySelector('.fruits');
+const parentDiv = fruitListt.parentElement;
+parentDiv.insertBefore(showFruitsNum, fruitListt);
 
 
 const test = document.createElement('li');
 test.class = "fruit"
 test.innerHTML = "Grapes";
-fruitList.appendChild(test);
+fruitListt.appendChild(test);
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+const form = document.querySelector("form");
+const fruitList = document.querySelector(".fruits");
+
+// form.addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     const addInputBox = document.querySelector('#fruit-to-add');
+
+//     const newLi = document.createElement('li');
+//     newLi.innerHTML = `
+//         ${addInputBox.value}
+//         <button class="delete-btn">x</button>
+//         <button class="edit-btn">Edit</button>
+//     `;
+//     // const newLiText = document.createTextNode(addInputBox.value);
+//     // newLi.appendChild(newLiText);
+//     // newLi.className = "fruit";
+
+//     // const deleteBtn = document.createElement('button');
+//     // deleteBtn.className = "delete-btn";
+//     // const deleteBtnText = document.createTextNode('x');
+//     // deleteBtn.appendChild(deleteBtnText);
+
+//     // newLi.appendChild(deleteBtn);
+//     fruitList.appendChild(newLi);
+
+//     // clear input box
+//     addInputBox.value = "";
+
+// })
+
+// fruitList.addEventListener('click', function (event){
+//     if (event.target.classList.contains('delete-btn')) {
+//         const deleteFruit = event.target.parentElement;
+//         fruitList.removeChild(deleteFruit);
+//     }
+
+//     if (event.target.classList.contains('edit-btn')) {
+//         const li = event.target.parentElement;
+//         const fruitName = prompt("Edit fruit name:", li.firstChild.textContent.trim());
+//         if (fruitName !== null) {
+//             li.firstChild.textContent = fruitName + ' ';
+//         }
+//     }
+// })
+
+// Add Edit + Delete button to existing fruits
+const existingFruits = document.querySelectorAll(".fruit");
+existingFruits.forEach((li) => {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.textContent = "x";
+
+  const editBtn = document.createElement("button");
+  editBtn.className = "edit-btn";
+  editBtn.textContent = "Edit";
+
+  li.appendChild(deleteBtn);
+  li.appendChild(editBtn);
+});
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const addInputBox = document.querySelector("#fruit-to-add");
+
+  const newLi = document.createElement("li");
+  newLi.className = "fruit";
+  newLi.textContent = addInputBox.value;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.textContent = "x";
+
+  const editBtn = document.createElement("button");
+  editBtn.className = "edit-btn";
+  editBtn.textContent = "Edit";
+
+  newLi.appendChild(deleteBtn);
+  newLi.appendChild(editBtn);
+
+  fruitList.appendChild(newLi);
+
+  addInputBox.value = "";
+});
+
+fruitList.addEventListener("click", function (event) {
+  if (event.target.classList.contains("delete-btn")) {
+    const deleteFruit = event.target.parentElement;
+    fruitList.removeChild(deleteFruit);
+  }
+});
