@@ -20,3 +20,17 @@ const para = document.createElement("p");
 para.textContent = "Please visit us again";
 
 thanksText.appendChild(para);
+
+
+
+// Change the background color of the second element in the list(next question)
+
+allElement[2].style.backgroundColor = "yellow";
+
+for (let i = 0; i < allElement.length; i++) {
+  allElement[i].style.fontWeight = "bold";
+}
+
+
+
+//
