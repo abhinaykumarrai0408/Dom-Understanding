@@ -33,4 +33,12 @@ for (let i = 0; i < allElement.length; i++) {
 
 
 
-//
+//getElementsByTagName (next question)
+// Write your code below:
+const lastItem = document.getElementsByTagName('li');
+
+lastItem[4].style.color = "blue"
+
+for (let i = 0; i < lastItem.length; i++){
+    lastItem[i].style.fontStyle = "italic";
+}
