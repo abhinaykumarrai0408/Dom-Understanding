@@ -89,3 +89,40 @@ for (let i = 0; i < fruits.length; i++) {
     }
 }
 
+
+
+
+
+// Creating Elements & DOM Relations
+// Write your code below:
+// Inside the first Div, after the main heading add a sub-heading (h3 tag) "Buy high quality organic fruits online".
+const heading = document.querySelector('#header');
+const buyOnline = document.createElement('h3');
+buyOnline.innerHTML = "Buy high quality organic fruits online";
+
+//2. Make the sub-heading text italic.
+buyOnline.style.fontStyle = 'italic'
+heading.appendChild(buyOnline);
+
+
+//  Inside the second Div, before the unordered list add a paragraph tag showing "Total fruits: 4" .On this paragraph tag set an id of "fruits-total".
+let num = 0;
+const allItems = document.querySelectorAll('.fruit');
+num = allItems.length;
+const showFruitsheading = document.createElement('h2');
+const showFruitsNum = document.createElement('p');
+showFruitsNum.id = "fruits-total"
+showFruitsNum.innerHTML = `Total fruits:${num}`;
+showFruitsheading.appendChild(showFruitsNum);
+
+const fruitList = document.querySelector('.fruits');
+const parentDiv = fruitList.parentElement;
+parentDiv.insertBefore(showFruitsNum, fruitList);
+
+
+const test = document.createElement('li');
+test.class = "fruit"
+test.innerHTML = "Grapes";
+fruitList.appendChild(test);
+
+
